@@ -1,238 +1,185 @@
 
 <!DOCTYPE html>
-
 <html lang="zh">
 <head>
-<meta charset="utf-8"/>
-<title>丹佛家庭海外仓服务 | Denver Warehouse</title>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<style>
-        body { font-family: "Arial", sans-serif; background: #f8f8f8; margin: 0; padding: 20px; }
-        .container { max-width: 900px; margin: auto; background: #fff; padding: 30px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        h1, h2 { color: #003366; }
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-        th, td { border: 1px solid #aaa; padding: 10px; text-align: left; }
-        th { background: #f0f0f0; }
-        .lang-toggle { text-align: right; margin-bottom: 10px; }
-        .faq { margin-top: 30px; }
-        .faq h3 { color: #333366; }
-        .faq p { margin: 5px 0 15px; }
-        .wechat-float {
-            position: fixed;
-            right: 15px;
-            bottom: 20px;
-            z-index: 1000;
-            background: #fff;
-            border: 1px solid #ccc;
-            padding: 8px;
-            box-shadow: 0 0 6px rgba(0,0,0,0.2);
-            cursor: pointer;
-            text-align: center;
-        }
-        .wechat-float img { width: 40px; height: 40px; }
-        .wechat-popup {
-            display: none;
-            position: fixed;
-            right: 70px;
-            bottom: 70px;
-            background: #fff;
-            padding: 10px;
-            border: 1px solid #ccc;
-        }
-        .wechat-popup img { width: 160px; }
-        @media (max-width: 600px) {
-            .container { padding: 15px; }
-            table, th, td { font-size: 14px; }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>丹佛家庭海外仓服务 | Denver Warehouse</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 20px; }
+    .faq-toggle {
+      cursor: pointer;
+      padding: 14px;
+      font-weight: bold;
+      background: #f2f2f2;
+      border: 1px solid #ccc;
+      margin-top: 8px;
+    }
+    .faq-answer {
+      overflow: hidden;
+      max-height: 0;
+      transition: all 0.3s ease;
+      background: #fff;
+      padding: 0 10px;
+      border-left: 3px solid #003366;
+    }
+    .faq-answer.open {
+      padding: 10px;
+      max-height: 300px;
+    }
+    .faq h2 { color: #003366; }
+  </style>
+  <script>
+    function toggleAnswer(id) {
+      const el = document.getElementById(id);
+      el.classList.toggle("open");
+    }
+    function toggleLang() {
+      const zh = document.querySelectorAll('.zh');
+      const en = document.querySelectorAll('.en');
+      zh.forEach(e => e.style.display = (e.style.display === 'none') ? 'block' : 'none');
+      en.forEach(e => e.style.display = (e.style.display === 'none') ? 'block' : 'none');
+    }
+  </script>
 </head>
 <body>
-<div class="container">
-<div class="lang-toggle">
-<button onclick="toggleLang()">切换语言 | Switch Language</button>
-</div>
-<h1 class="zh">丹佛本地海外仓服务（家庭运营）</h1>
-<h1 class="en" style="display:none;">Denver Family-run Warehouse Services</h1>
-<div class="zh">
-<p>我们位于美国科罗拉多州丹佛市，为中国跨境卖家提供高效、灵活的物流支持服务。</p>
-<h2>服务内容</h2>
-<ul>
-<li>包裹代收、拆包、验货、合包、发货</li>
-<li>支持 USPS、UPS、FedEx 快递</li>
-<li>提供本地退货地址、短期仓储服务</li>
-</ul>
-<h2>收费标准</h2>
-<table>
-<tr><th>服务项目</th><th>费用</th><th>说明</th></tr>
-<tr><td>包裹签收</td><td>免费 / 每件 $1</td><td>当日拍照反馈</td></tr>
-<tr><td>拆包验货</td><td>$1 每件</td><td>支持拍照/视频</td></tr>
-<tr><td>合包处理</td><td>$2/次</td><td>多个包裹合并打包</td></tr>
-<tr><td>重新打包</td><td>$2 起</td><td>按体积计费</td></tr>
-<tr><td>仓储</td><td>前7天免费，后$0.5/天</td><td>按件计费</td></tr>
-<tr><td>退货地址</td><td>$15/月</td><td>提供美国本地退货</td></tr>
-</table>
-</div>
-<div class="en" style="display:none;">
-<p>We are based in Denver, Colorado, providing reliable warehouse services for Chinese cross-border sellers.</p>
-<h2>Services</h2>
-<ul>
-<li>Package receiving, inspection, consolidation, and shipping</li>
-<li>Support for USPS, UPS, FedEx</li>
-<li>US local return address and short-term storage</li>
-</ul>
-<h2>Pricing</h2>
-<table>
-<tr><th>Service</th><th>Fee</th><th>Description</th></tr>
-<tr><td>Receiving</td><td>Free / $1 per pkg</td><td>Photo confirmation on arrival</td></tr>
-<tr><td>Inspection</td><td>$1 each</td><td>Photo or video supported</td></tr>
-<tr><td>Consolidation</td><td>$2/time</td><td>Combine multiple parcels</td></tr>
-<tr><td>Repacking</td><td>From $2</td><td>Based on size</td></tr>
-<tr><td>Storage</td><td>First 7 days free, $0.5/day</td><td>Per item</td></tr>
-<tr><td>Return address</td><td>$15/month</td><td>US-based return handling</td></tr>
-</table>
-</div>
-<div class="faq">
+  <button onclick="toggleLang()">中 / EN</button>
+<div class="intro">
+  <h1 class="zh">丹佛本地海外仓服务（家庭运营）</h1>
+  <h1 class="en" style="display:none;">Denver Local Warehouse Service (Family-Run)</h1>
 
-<h2 class="en" style="display:none;">Frequently Asked Questions</h2>
-<div class="zh">
-<div class="faq-toggle" onclick="toggleAnswer('zh1')">仓储怎么收费？</div>
-<div class="faq-answer" id="zh1">每个包裹前 7 天免费，之后每件 $0.5/天。</div>
-<div class="faq-toggle" onclick="toggleAnswer('zh2')">我可以一次寄很多包裹过去吗？</div>
-<div class="faq-answer" id="zh2">可以，无数量限制，我们支持合包发货，节省运费。</div>
-<div class="faq-toggle" onclick="toggleAnswer('zh3')">支持哪些快递发货？</div>
-<div class="faq-answer" id="zh3">我们支持 USPS、UPS、FedEx 等本地主流快递。</div>
-<div class="faq-toggle" onclick="toggleAnswer('zh4')">发货多久可以寄出？</div>
-<div class="faq-answer" id="zh4">一般在确认后24小时内发出，紧急订单请提前说明。</div>
-<div class="faq-toggle" onclick="toggleAnswer('zh5')">包裹可以存多久？</div>
-<div class="faq-answer" id="zh5">最长可存放30天，超过30天将自动清仓处理。</div>
-<div class="faq-toggle" onclick="toggleAnswer('zh6')">支持退货服务吗？</div>
-<div class="faq-answer" id="zh6">是的，我们可以作为你在美国的退货地址，帮你签收、检查、处理退件。</div>
-<div class="faq-toggle" onclick="toggleAnswer('zh7')">客户如何联系你？</div>
-<div class="faq-answer" id="zh7">可通过页面上的微信或邮箱联系。</div>
-</div>
-<div class="en" style="display:none;">
-<div class="faq-toggle" onclick="toggleAnswer('en1')">How is storage charged?</div>
-<div class="faq-answer" id="en1">Each package is free for 7 days, then $0.5/day after that.</div>
-<div class="faq-toggle" onclick="toggleAnswer('en2')">Can I send many packages at once?</div>
-<div class="faq-answer" id="en2">Yes, there is no limit. We support consolidation to save cost.</div>
-<div class="faq-toggle" onclick="toggleAnswer('en3')">Which couriers do you support?</div>
-<div class="faq-answer" id="en3">We support USPS, UPS, FedEx and more.</div>
-<div class="faq-toggle" onclick="toggleAnswer('en4')">How fast do you ship?</div>
-<div class="faq-answer" id="en4">Usually within 24 hours after confirmation. Let us know if urgent.</div>
-<div class="faq-toggle" onclick="toggleAnswer('en5')">How long can I store packages?</div>
-<div class="faq-answer" id="en5">Up to 30 days. After that, items may be cleared.</div>
-<div class="faq-toggle" onclick="toggleAnswer('en6')">Do you support return service?</div>
-<div class="faq-answer" id="en6">Yes, we provide a U.S. return address and handle returns.</div>
-<div class="faq-toggle" onclick="toggleAnswer('en7')">How can clients contact you?</div>
-<div class="faq-answer" id="en7">Use the WeChat or email shown on the page.</div>
-</div>
-</div>
-<style>
-  .faq-toggle {
-    cursor: pointer;
-    padding: 14px;
-    font-weight: bold;
-    background: #f2f2f2;
-    border: 1px solid #ccc;
-    margin-top: 8px;
-  }
-  .faq-answer {
-    overflow: hidden;
-    max-height: 0;
-    transition: all 0.3s ease;
-    background: #fff;
-    padding: 0 10px;
-    border-left: 3px solid #003366;
-  }
-  .faq-answer.open {
-    padding: 10px;
-    max-height: 300px;
-  }
-</style>
-<script>
-  function toggleAnswer(id) {
-    const el = document.getElementById(id);
-    el.classList.toggle("open");
-  }
-</script>
-<div class="faq-answer" id="zh1">每个包裹前7天免费，之后按 $0.5/天/件计费。</div>
-<div class="faq-toggle" onclick="toggleAnswer('zh2')">我可以一次寄很多包裹过去吗？</div>
-<div class="faq-answer" id="zh2">可以，无数量限制，我们支持合包发货，节省运费。</div>
-<div class="faq-toggle" onclick="toggleAnswer('zh3')">支持哪些快递发货？</div>
-<div class="faq-answer" id="zh3">我们支持 USPS、UPS、FedEx，可按需选择。</div>
-<div class="faq-toggle" onclick="toggleAnswer('zh4')">发货多久可以寄出？</div>
-<div class="faq-answer" id="zh4">一般在确认后24小时内发出。紧急订单请提前说明。</div>
-<div class="faq-toggle" onclick="toggleAnswer('zh5')">包裹可以存多久？</div>
-<div class="faq-answer" id="zh5">最长可存放30天，超过30天将自动清仓处理。</div>
-<div class="faq-toggle" onclick="toggleAnswer('zh6')">支持退货服务吗？</div>
-<div class="faq-answer" id="zh6">是的，我们可以作为你在美国的退货地址，帮你签收、检查、处理退件。</div>
-<div class="faq-toggle" onclick="toggleAnswer('zh7')">客户如何联系你？</div>
-<div class="faq-answer" id="zh7">可通过微信（YOUQIANDAGE0312）或邮箱（iiyssa0312@gmail.com）与我们联系。</div>
-</div>
-<div class="en" style="display:none;">
-<div class="faq-toggle" onclick="toggleAnswer('en1')">How is storage charged?</div>
-<div class="faq-answer" id="en1">Storage is free for the first 7 days per item, then $0.5 per day per item.</div>
-<div class="faq-toggle" onclick="toggleAnswer('en2')">Can I send many packages at once?</div>
-<div class="faq-answer" id="en2">Yes, no limit. We support consolidation to save shipping cost.</div>
-<div class="faq-toggle" onclick="toggleAnswer('en3')">Which couriers do you support?</div>
-<div class="faq-answer" id="en3">We support USPS, UPS, and FedEx. Choose what fits your needs.</div>
-<div class="faq-toggle" onclick="toggleAnswer('en4')">How fast do you ship?</div>
-<div class="faq-answer" id="en4">Orders are shipped within 24 hours after confirmation. Let us know if it's urgent.</div>
-<div class="faq-toggle" onclick="toggleAnswer('en5')">How long can I store packages?</div>
-<div class="faq-answer" id="en5">Items can be stored up to 30 days. After that, they may be cleared.</div>
-<div class="faq-toggle" onclick="toggleAnswer('en6')">Do you support return service?</div>
-<div class="faq-answer" id="en6">Yes, we offer US return address service including receiving, inspection, and forwarding.</div>
-<div class="faq-toggle" onclick="toggleAnswer('en7')">How can clients contact you?</div>
-<div class="faq-answer" id="en7">Contact us via WeChat (YOUQIANDAGE0312) or email (iiyssa0312@gmail.com).</div>
+  <p class="zh">我们位于美国科罗拉多州丹佛市，为中国跨境卖家提供高效、灵活的物流支持服务。</p>
+  <p class="en" style="display:none;">We are based in Denver, Colorado, providing efficient and flexible logistics support for Chinese cross-border sellers.</p>
+
+  <h2 class="zh">服务内容</h2>
+  <ul class="zh">
+    <li>包裹代收、拆包、验货、合包、发货</li>
+    <li>支持 USPS、UPS、FedEx 快递</li>
+    <li>提供本地退货地址、短期仓储服务</li>
+  </ul>
+
+  <h2 class="en" style="display:none;">Services</h2>
+  <ul class="en" style="display:none;">
+    <li>Package receiving, inspection, consolidation, and shipping</li>
+    <li>Supports USPS, UPS, FedEx</li>
+    <li>Local return address and short-term storage</li>
+  </ul>
+
+  <h2 class="zh">收费标准</h2>
+  <h2 class="en" style="display:none;">Pricing</h2>
+
+  <table border="1" cellspacing="0" cellpadding="8">
+    <thead>
+      <tr class="zh">
+        <th>服务项目</th><th>费用</th><th>说明</th>
+      </tr>
+      <tr class="en" style="display:none;">
+        <th>Service</th><th>Price</th><th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="zh">
+        <td>包裹签收</td><td>免费 / 每件 $1</td><td>当日拍照反馈</td>
+      </tr>
+      <tr class="zh">
+        <td>拆包验货</td><td>$1 每件</td><td>支持拍照/视频</td>
+      </tr>
+      <tr class="zh">
+        <td>合包处理</td><td>$2/次</td><td>多个包裹合并打包</td>
+      </tr>
+      <tr class="zh">
+        <td>重新打包</td><td>$2 起</td><td>按体积计费</td>
+      </tr>
+      <tr class="zh">
+        <td>仓储</td><td>前7天免费，后$0.5/天</td><td>按件计费</td>
+      </tr>
+      <tr class="zh">
+        <td>退货地址</td><td>$15/月</td><td>提供美国本地退货</td>
+      </tr>
+
+      <tr class="en" style="display:none;">
+        <td>Package receiving</td><td>Free / $1 each</td><td>Photo update same day</td>
+      </tr>
+      <tr class="en" style="display:none;">
+        <td>Inspection</td><td>$1 each</td><td>Photo/video supported</td>
+      </tr>
+      <tr class="en" style="display:none;">
+        <td>Consolidation</td><td>$2/time</td><td>Combine multiple packages</td>
+      </tr>
+      <tr class="en" style="display:none;">
+        <td>Repackaging</td><td>From $2</td><td>Based on size</td>
+      </tr>
+      <tr class="en" style="display:none;">
+        <td>Storage</td><td>First 7 days free, $0.5/day after</td><td>Charged per item</td>
+      </tr>
+      <tr class="en" style="display:none;">
+        <td>Return address</td><td>$15/month</td><td>US return service</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
-<style>
-    .faq-toggle { cursor: pointer; padding: 10px; margin: 5px 0; background: #f1f1f1; border: 1px solid #ccc; }
-    .faq-answer { display: none; padding: 10px; background: #fff; border-left: 2px solid #003366; margin-bottom: 10px; }
-</style>
-<script>
-    function toggleAnswer(id) {
-        const answer = document.getElementById(id);
-        answer.style.display = answer.style.display === "none" ? "block" : "none";
-    }
-</script>
 
-<h2 class="en" style="display:none;">Frequently Asked Questions</h2>
+  <div class="faq">
+    <h2 class="zh">常见问题</h2>
+    <h2 class="en" style="display:none;">Frequently Asked Questions</h2>
 
+    <div class="zh">
+      <div class="faq-toggle" onclick="toggleAnswer('zh1')">仓储怎么收费？</div>
+      <div class="faq-answer" id="zh1">每个包裹前 7 天免费，之后每件 $0.5/天。</div>
 
+      <div class="faq-toggle" onclick="toggleAnswer('zh2')">我可以一次寄很多包裹过去吗？</div>
+      <div class="faq-answer" id="zh2">可以，无数量限制，我们支持合包发货，节省运费。</div>
 
-<p class="en" style="display:none;">Each item is free for the first 7 days, then $0.5 per day.</p>
+      <div class="faq-toggle" onclick="toggleAnswer('zh3')">支持哪些快递？</div>
+      <div class="faq-answer" id="zh3">我们支持 USPS、UPS、FedEx 等本地主流快递。</div>
 
-<p class="zh">我们支持 USPS、UPS、FedEx 等本地主流快递。</p>
+      <div class="faq-toggle" onclick="toggleAnswer('zh4')">发货多久可以寄出？</div>
+      <div class="faq-answer" id="zh4">一般在确认后24小时内发出，紧急订单请提前说明。</div>
 
-<p class="en" style="display:none;">We support USPS, UPS, FedEx and other major carriers.</p>
+      <div class="faq-toggle" onclick="toggleAnswer('zh5')">包裹可以存多久？</div>
+      <div class="faq-answer" id="zh5">最长可存放30天，超过30天将自动清仓处理。</div>
 
+      <div class="faq-toggle" onclick="toggleAnswer('zh6')">支持退货服务吗？</div>
+      <div class="faq-answer" id="zh6">是的，我们可以作为你在美国的退货地址，帮你签收、检查、处理退件。</div>
+
+      <div class="faq-toggle" onclick="toggleAnswer('zh7')">客户如何联系你？</div>
+      <div class="faq-answer" id="zh7">可通过页面上的联系方式添加微信或发送邮件。</div>
+    </div>
+
+    <div class="en" style="display:none;">
+      <div class="faq-toggle" onclick="toggleAnswer('en1')">How is storage charged?</div>
+      <div class="faq-answer" id="en1">Each package is free for 7 days, then $0.5/day after that.</div>
+
+      <div class="faq-toggle" onclick="toggleAnswer('en2')">Can I send many packages at once?</div>
+      <div class="faq-answer" id="en2">Yes, no limit. We support consolidation to save cost.</div>
+
+      <div class="faq-toggle" onclick="toggleAnswer('en3')">Which couriers do you support?</div>
+      <div class="faq-answer" id="en3">We support USPS, UPS, FedEx and other major domestic carriers.</div>
+
+      <div class="faq-toggle" onclick="toggleAnswer('en4')">How fast do you ship?</div>
+      <div class="faq-answer" id="en4">Usually within 24 hours after confirmation. Let us know if urgent.</div>
+
+      <div class="faq-toggle" onclick="toggleAnswer('en5')">How long can I store packages?</div>
+      <div class="faq-answer" id="en5">Up to 30 days. After that, items may be cleared.</div>
+
+      <div class="faq-toggle" onclick="toggleAnswer('en6')">Do you support return service?</div>
+      <div class="faq-answer" id="en6">Yes, we provide a U.S. return address and handle returns.</div>
+
+      <div class="faq-toggle" onclick="toggleAnswer('en7')">How can clients contact you?</div>
+      <div class="faq-answer" id="en7">Use the WeChat name or email shown on this page.</div>
+    </div>
+  </div>
+
+  
 <div class="contact">
-<h2 class="zh">联系方式</h2>
-<h2 class="en" style="display:none;">Contact</h2>
-<p>微信：YOUQIANDAGE0312</p>
-<p>Email: iiyssa0312@gmail.com</p>
-<img alt="微信二维码" src="wechat_qr.jpeg" style="width:150px;"/>
+    <h2 class="zh">联系方式</h2>
+    <h2 class="en" style="display:none;">Contact</h2>
+    <p class="zh">微信：YOUQIANDAGE0312</p>
+    <p class="en" style="display:none;">WeChat: YOUQIANDAGE0312</p>
+    <p>Email: iiyssa0312@gmail.com</p>
 </div>
 
-<div class="wechat-float" onclick="toggleWeChat()">
-<img alt="微信" src="wechat_qr.jpeg"/>
-<div style="font-size:12px;">客服微信</div>
-</div>
-<div class="wechat-popup" id="wechatPopup">
-<img alt="微信二维码" src="wechat_qr.jpeg"/>
-</div>
-<script>
-    function toggleLang() {
-        const zh = document.querySelectorAll('.zh');
-        const en = document.querySelectorAll('.en');
-        zh.forEach(el => el.style.display = el.style.display === 'none' ? '' : 'none');
-        en.forEach(el => el.style.display = el.style.display === 'none' ? '' : 'none');
-    }
-    function toggleWeChat() {
-        const pop = document.getElementById('wechatPopup');
-        pop.style.display = pop.style.display === 'block' ? 'none' : 'block';
-    }
-</script>
+
 </body>
 </html>
